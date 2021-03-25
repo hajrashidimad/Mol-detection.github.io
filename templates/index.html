@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Cancerous test</title>
+
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    </head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Vaccination</a></li>
+                <li><a href="#">About-us</a></li>
+
+            </ul>
+
+        </div>
+        <div class="content">
+            <h1>TEST YOUR MOLE</h1>
+            <p>Together for a life more healthy!! <br>Take a photo of your MOLE and upload it below!! we'll tell you if it's dangerous or not!! </p>
+            <div class="thaer">
+                <form method=POST enctype=multipart/form-data>
+                <input type="file" name="image" id="real-file" hidden="hidden"/>
+                <button type="button" id="custom-button">Upload an image</button>
+                <input type="submit" id="btn" value="Predict">
+                <br>
+                <h3>Prediction: {{prediction}}</h3>
+                <script>
+                    const realFileBtn = document.getElementById("real-file");
+                    const customBtn = document.getElementById("custom-button");
+
+                    customBtn.addEventListener("click", function(){
+                        realFileBtn.click();
+                    })
+
+                </script>
+
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
